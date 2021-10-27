@@ -6,13 +6,13 @@ fun main() {
     val sum: Int = 0
     print("Введите тип карты/счёта: ")
     var cardType = "Vk Pay"
-    cardType = sc.nextLine()
+    //cardType = sc.nextLine()
     print("Введите сумму совершаемого перевода в копейках: ")
-    val transferAmount = sc.nextInt()
+    val transferAmount = 1000000
     calculationOfCommission(cardType, sum, transferAmount)
 }
 
-private fun calculationOfCommission(cardType: String, sum: Int, transferAmount: Int) {
+fun calculationOfCommission(cardType: String, sum: Int, transferAmount: Int) {
 
     when (cardType) {
         "Maestro", "Mastercard" -> {
@@ -31,21 +31,21 @@ private fun calculationOfCommission(cardType: String, sum: Int, transferAmount: 
     }
 }
 
-private fun calculationOfCommissionMaestroMasterCard(transferAmount: Int): Double {
-    var commission: Double = 0.0
+fun calculationOfCommissionMaestroMasterCard(transferAmount: Int): Int {
+    var commission = 0
     if (transferAmount in 300 * 100..75000 * 100) {
-        commission = 0.0
+        commission = 0
     } else {
-        commission = 0.006 * transferAmount + 20 * 100
+        commission = (0.006 * transferAmount + 20 * 100).toInt()
     }
     return commission
 }
 
-private fun calculationOfCommissionVisaMir(transferAmount: Int): Double {
-    var commission: Double = 0.0
-    commission = 0.0075 * transferAmount
+fun calculationOfCommissionVisaMir(transferAmount: Int): Int {
+    var commission = 0
+    commission = (0.0075 * transferAmount).toInt()
     if (commission <= 35 * 100) {
-        commission = (35 * 100).toDouble()
+        commission = (35 * 100)
         println("Минимальная комиссия составляет $commission копеек")
     }
     return commission

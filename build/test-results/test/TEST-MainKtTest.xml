@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MainKtTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-10-26T15:41:06" hostname="DESKTOP-LK4G1QT" time="0.018">
+  <properties/>
+  <testcase name="calculationOfCommissionVisaMir_WhenThereIsACommission" classname="MainKtTest" time="0.005"/>
+  <testcase name="calculationOfCommissionVisaMir_WhenTheObligatoryCommission" classname="MainKtTest" time="0.005"/>
+  <testcase name="calculationOfCommission" classname="MainKtTest" time="0.005"/>
+  <testcase name="mainTest" classname="MainKtTest" time="0.003"/>
+  <testcase name="calculationOfCommissionMaestroMasterCard_WhenThereIsNoCommission" classname="MainKtTest" time="0.0"/>
+  <testcase name="calculationOfCommissionMaestroMasterCard_WhenThereIsACommission" classname="MainKtTest" time="0.0"/>
+  <system-out><![CDATA[Минимальная комиссия составляет 3500 копеек
+Ваша комиссия составит: 2000Минимальная комиссия составляет 3500 копеек
+Ваша комиссия составит: 3500Введите тип карты/счёта: Введите сумму совершаемого перевода в копейках: Комиссия не взимается]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
