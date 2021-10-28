@@ -6,28 +6,21 @@ fun main() {
     val sum: Int = 0
     print("Введите тип карты/счёта: ")
     var cardType = "Vk Pay"
-    //cardType = sc.nextLine()
+    cardType = sc.nextLine()
     print("Введите сумму совершаемого перевода в копейках: ")
-    val transferAmount = 1000000
-    calculationOfCommission(cardType, sum, transferAmount)
+    var transferAmount = 1000000
+    transferAmount = sc.nextInt()
+    println("Ваша коммиссия составляет : ${calculationOfCommission(cardType, sum, transferAmount)}")
 }
 
-fun calculationOfCommission(cardType: String, sum: Int, transferAmount: Int) {
+fun calculationOfCommission(cardType: String, sum: Int, transferAmount: Int): Int {
 
-    when (cardType) {
-        "Maestro", "Mastercard" -> {
-            print("Ваша комиссия составит: ${calculationOfCommissionMaestroMasterCard(transferAmount)}")
-        }
+    return when (cardType) {
+        "Maestro", "Mastercard" -> calculationOfCommissionMaestroMasterCard(transferAmount)
 
-        "Visa", "Мир" -> {
-            print("Ваша комиссия составит: ${calculationOfCommissionVisaMir(transferAmount)}")
-        }
+        "Visa", "Мир" -> calculationOfCommissionVisaMir(transferAmount)
 
-        "Vk Pay" -> {
-            print("Комиссия не взимается")
-        }
-
-        else -> print("Введите правильный тип карты/счёта")
+        else -> 0
     }
 }
 

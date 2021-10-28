@@ -4,17 +4,19 @@ import org.junit.Assert.*
 
 class MainKtTest {
 
-    @Test
-    fun mainTest() {
-        main()
-        assertEquals(true, true)
-    }
 
     @Test
     fun calculationOfCommission() {
-        val result = Unit
-        assertEquals(result, calculationOfCommission("Maestro", 1000000, 100))
-        assertEquals(result, calculationOfCommission("Visa", 1000000, 1000))
+        var result = 2000
+        assertEquals(result, calculationOfCommission("Maestro", 1_000_000, 100))
+        result = 3500
+        assertEquals(result, calculationOfCommission("Visa", 1_000_000, 100))
+        result = 2081
+        assertEquals(result, calculationOfCommission("Mastercard", 1_000_000, 13500))
+        result = 3500
+        assertEquals(result, calculationOfCommission("Мир", 1_000_000, 100))
+        result = 0
+        assertEquals(result, calculationOfCommission("Vk Pay", 1_000_000, 100))
     }
 
 
@@ -35,8 +37,9 @@ class MainKtTest {
 
     @Test
     fun calculationOfCommissionVisaMir_WhenThereIsACommission() {
-        val result = 7500
+        var result = 7500
         assertEquals(result, calculationOfCommissionVisaMir(1_000_000))
+
 
     }
 

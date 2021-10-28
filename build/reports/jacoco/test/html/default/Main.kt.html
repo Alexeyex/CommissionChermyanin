@@ -2,52 +2,45 @@
 
 
 fun main() {
-<span class="fc" id="L5">    val sc = Scanner(System.`in`)</span>
-<span class="fc" id="L6">    val sum: Int = 0</span>
-<span class="fc" id="L7">    print(&quot;Р’РІРµРґРёС‚Рµ С‚РёРї РєР°СЂС‚С‹/СЃС‡С‘С‚Р°: &quot;)</span>
-<span class="fc" id="L8">    var cardType = &quot;Vk Pay&quot;</span>
-    //cardType = sc.nextLine()
-<span class="fc" id="L10">    print(&quot;Р’РІРµРґРёС‚Рµ СЃСѓРјРјСѓ СЃРѕРІРµСЂС€Р°РµРјРѕРіРѕ РїРµСЂРµРІРѕРґР° РІ РєРѕРїРµР№РєР°С…: &quot;)</span>
-<span class="fc" id="L11">    val transferAmount = 1000000</span>
-<span class="fc" id="L12">    calculationOfCommission(cardType, sum, transferAmount)</span>
-<span class="fc" id="L13">}</span>
+<span class="nc" id="L5">    val sc = Scanner(System.`in`)</span>
+<span class="nc" id="L6">    val sum: Int = 0</span>
+<span class="nc" id="L7">    print(&quot;Р’РІРµРґРёС‚Рµ С‚РёРї РєР°СЂС‚С‹/СЃС‡С‘С‚Р°: &quot;)</span>
+<span class="nc" id="L8">    var cardType = &quot;Vk Pay&quot;</span>
+<span class="nc" id="L9">    cardType = sc.nextLine()</span>
+<span class="nc" id="L10">    print(&quot;Р’РІРµРґРёС‚Рµ СЃСѓРјРјСѓ СЃРѕРІРµСЂС€Р°РµРјРѕРіРѕ РїРµСЂРµРІРѕРґР° РІ РєРѕРїРµР№РєР°С…: &quot;)</span>
+<span class="nc" id="L11">    var transferAmount = 1000000</span>
+<span class="nc" id="L12">    transferAmount = sc.nextInt()</span>
+<span class="nc" id="L13">    println(&quot;Р’Р°С€Р° РєРѕРјРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ : ${calculationOfCommission(cardType, sum, transferAmount)}&quot;)</span>
+<span class="nc" id="L14">}</span>
 
-fun calculationOfCommission(cardType: String, sum: Int, transferAmount: Int) {
+fun calculationOfCommission(cardType: String, sum: Int, transferAmount: Int): Int {
 
-<span class="pc bpc" id="L17" title="3 of 6 branches missed.">    when (cardType) {</span>
-<span class="pc bpc" id="L18" title="3 of 4 branches missed.">        &quot;Maestro&quot;, &quot;Mastercard&quot; -&gt; {</span>
-<span class="fc" id="L19">            print(&quot;Р’Р°С€Р° РєРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІРёС‚: ${calculationOfCommissionMaestroMasterCard(transferAmount)}&quot;)</span>
-        }
+<span class="fc bfc" id="L18" title="All 5 branches covered.">    return when (cardType) {</span>
+<span class="pc bpc" id="L19" title="2 of 4 branches missed.">        &quot;Maestro&quot;, &quot;Mastercard&quot; -&gt; calculationOfCommissionMaestroMasterCard(transferAmount)</span>
 
-<span class="pc bpc" id="L22" title="3 of 4 branches missed.">        &quot;Visa&quot;, &quot;РњРёСЂ&quot; -&gt; {</span>
-<span class="fc" id="L23">            print(&quot;Р’Р°С€Р° РєРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІРёС‚: ${calculationOfCommissionVisaMir(transferAmount)}&quot;)</span>
-        }
+<span class="pc bpc" id="L21" title="2 of 4 branches missed.">        &quot;Visa&quot;, &quot;РњРёСЂ&quot; -&gt; calculationOfCommissionVisaMir(transferAmount)</span>
 
-<span class="pc bpc" id="L26" title="1 of 2 branches missed.">        &quot;Vk Pay&quot; -&gt; {</span>
-<span class="fc" id="L27">            print(&quot;РљРѕРјРёСЃСЃРёСЏ РЅРµ РІР·РёРјР°РµС‚СЃСЏ&quot;)</span>
-        }
-
-<span class="nc" id="L30">        else -&gt; print(&quot;Р’РІРµРґРёС‚Рµ РїСЂР°РІРёР»СЊРЅС‹Р№ С‚РёРї РєР°СЂС‚С‹/СЃС‡С‘С‚Р°&quot;)</span>
+<span class="fc" id="L23">        else -&gt; 0</span>
     }
-<span class="fc" id="L32">}</span>
+}
 
 fun calculationOfCommissionMaestroMasterCard(transferAmount: Int): Int {
-<span class="fc" id="L35">    var commission = 0</span>
-<span class="fc bfc" id="L36" title="All 4 branches covered.">    if (transferAmount in 300 * 100..75000 * 100) {</span>
-<span class="fc" id="L37">        commission = 0</span>
+<span class="fc" id="L28">    var commission = 0</span>
+<span class="fc bfc" id="L29" title="All 4 branches covered.">    if (transferAmount in 300 * 100..75000 * 100) {</span>
+<span class="fc" id="L30">        commission = 0</span>
     } else {
-<span class="fc" id="L39">        commission = (0.006 * transferAmount + 20 * 100).toInt()</span>
+<span class="fc" id="L32">        commission = (0.006 * transferAmount + 20 * 100).toInt()</span>
     }
-<span class="fc" id="L41">    return commission</span>
+<span class="fc" id="L34">    return commission</span>
 }
 
 fun calculationOfCommissionVisaMir(transferAmount: Int): Int {
-<span class="fc" id="L45">    var commission = 0</span>
-<span class="fc" id="L46">    commission = (0.0075 * transferAmount).toInt()</span>
-<span class="fc bfc" id="L47" title="All 2 branches covered.">    if (commission &lt;= 35 * 100) {</span>
-<span class="fc" id="L48">        commission = (35 * 100)</span>
-<span class="fc" id="L49">        println(&quot;РњРёРЅРёРјР°Р»СЊРЅР°СЏ РєРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ $commission РєРѕРїРµРµРє&quot;)</span>
+<span class="fc" id="L38">    var commission = 0</span>
+<span class="fc" id="L39">    commission = (0.0075 * transferAmount).toInt()</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">    if (commission &lt;= 35 * 100) {</span>
+<span class="fc" id="L41">        commission = (35 * 100)</span>
+<span class="fc" id="L42">        println(&quot;РњРёРЅРёРјР°Р»СЊРЅР°СЏ РєРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ $commission РєРѕРїРµРµРє&quot;)</span>
     }
-<span class="fc" id="L51">    return commission</span>
+<span class="fc" id="L44">    return commission</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
